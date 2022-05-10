@@ -28,7 +28,7 @@ export class PatientAddComponent implements OnInit {
           date_of_birth: ['', [Validators.required]],
           taj_number: ['',[ Validators.required, Validators.pattern('^[0-9]{6}')]],
           medical_history: ['', [Validators.required, Validators.pattern(patternForName), Validators.maxLength(500), Validators.minLength(1)]],
-          gender: ['', [Validators.required, Validators.required]]
+          gender: ['', [Validators.required]]
         });
       }
 

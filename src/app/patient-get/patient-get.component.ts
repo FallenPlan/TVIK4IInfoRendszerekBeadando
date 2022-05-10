@@ -61,7 +61,7 @@ export class PatientGetComponent implements OnInit {
   });
 
       //searchByName
-      searchByName(){
+      /*searchByName(){
         if(this.searchByNameForm.valid){
           this.as.searchPatientByName(this.searchByNameForm.get('searchByName')?.value).subscribe((res)=>{
             this.readedData = res.pname;
@@ -69,7 +69,7 @@ export class PatientGetComponent implements OnInit {
           });
         }
         
-      }
+      }*/
 
       /*module('myApp', []).controller('personCtrl', function($scope) {
         $scope.pname = "John"

@@ -19,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { RouterModule } from '@angular/router';
     PatientGetComponent,
     NotFoundComponent,
     FilterPipe,
-    FormsModule,
     LoginComponent,
     RegistrationComponent
   ],
@@ -38,7 +36,6 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     ReactiveFormsModule,
     MatCardModule,
-    RouterModule,
     MatInputModule,
     FormsModule,
     MatToolbarModule,

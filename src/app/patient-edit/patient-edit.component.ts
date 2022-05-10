@@ -35,7 +35,7 @@ export class PatientEditComponent implements OnInit {
           pname: ['', [Validators.required, Validators.pattern(patternForName)]],
           date_of_birth: ['', [Validators.required]],
           taj_number: ['',[ Validators.required, Validators.pattern('^[0-9]{6}')]],
-          medical_history: ['', [Validators.required, Validators.pattern(patternForName), Validators.maxLength(500), Validators.minLength(1)]],
+          medical_history: ['', [Validators.required, Validators.pattern(patternForName), Validators.maxLength(500), Validators.minLength(1)]]
           //gender: ['', [Validators.required, Validators.pattern('^male' || '^female' || '^na')]]
         });
     }
@@ -64,7 +64,7 @@ export class PatientEditComponent implements OnInit {
       });
     }
   
-    updatePatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any, gender: any) {
+    updatePatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any) {
       this.as.getPatient().subscribe((data: Patient[]) => {
         this.PatientForCheck = data;
       
@@ -86,7 +86,7 @@ export class PatientEditComponent implements OnInit {
           IdOfThePatientFoundInDb= true;
         }
         if((IdOfThePatientFoundInDb==true && IdFoundInDB == true) || (IdFoundInDB==false)){
-          this.as.updatePatient(this.patientFromDB._id, pname, date_of_birth, taj_number, medical_history, gender);
+          this.as.updatePatient(this.patientFromDB._id, pname, date_of_birth, taj_number, medical_history);
           this.router.navigate(['patient-list']);
         } else {
           this.IdNumCheck = true;

@@ -10,7 +10,7 @@ import { Connection } from 'src/Models/Connection';
 
   export class AppService {
       uri = 'http://localhost:4000/app/';
-      searchByNameUri = 'http://localhost:4000/patient-list';
+      //searchByNameUri = 'http://localhost:4000/patient-list';
       //appUri = 'http://localhost:4200/patient-list';
     patient = new Patient();
     errorMgmt: (err: any, caught: Observable<Object>) => ObservableInput<any>;
@@ -37,23 +37,24 @@ import { Connection } from 'src/Models/Connection';
   }
 
     //search patient by name
-    searchPatientByName(pname:any):Observable<Patient>{
+    /*searchPatientByName(pname:any):Observable<Patient>{
       let nameVar = pname;
       return this.http.get<Patient>(`${this.searchByNameUri}/${nameVar}`);
-    }
+    }*/
 
       //get all partner
 
-  getAllPatient():Observable<any>{
+  /*getAllPatient():Observable<any>{
     return this.http.get(`${this.uri}`);
-  }
+  }*/
 
-      addConnection(pname: any, date_of_birth: any, taj_number: any) {
+      addConnection(pname: any, date_of_birth: any, taj_number: any, gender: any) {
           const obj = {
               patient: {
                 pname: pname,
                 date_of_birth: date_of_birth,
-                taj_number: taj_number
+                taj_number: taj_number,
+                gender: gender
               }
           };
           this.http.post(`${this.uri}ConnectionAdd`, obj).subscribe(res => console.log('Done Connection'));
@@ -76,13 +77,12 @@ import { Connection } from 'src/Models/Connection';
         return this.http.get(`${this.uri}editPatient/${id}`);
       }
 
-      updatePatient(id: any, pname: any, date_of_birth: any, taj_number: any, medical_history: any, gender: any) {
+      updatePatient(id: any, pname: any, date_of_birth: any, taj_number: any, medical_history: any) {
         const obj = {
             pname: pname,
             date_of_birth: date_of_birth,
             taj_number: taj_number,
-            medical_history: medical_history,
-            gender: gender
+            medical_history: medical_history
         };
         this.http.post(`${this.uri}patientUpdate/${id}`, obj).subscribe(res => console.log('Done'));
     }
