@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="angForm" novalidate>
+
+                <div class="form-group" style="margin-bottom: 10px">
+                    <label class="col-md-4">Name</label>
+                    <input type="text" class="form-control" placeholder="Type the name here..."
+                        formControlName="pname" #pname/>
+                </div>
+                <div *ngIf="angForm.controls['pname'].invalid && (angForm.controls['pname'].dirty ||
+                    angForm.controls['pname'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['pname'].errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="angForm.controls['pname'].errors?.['pattern']">
+                        Only letters!
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: -20px">
+                    <label class="col-md"></label>
+                        <mat-form-field >
+                            <input matInput placeholder="Birthdate" type="date" formControlName="date_of_birth" #date_of_birth/>
+                          </mat-form-field>
+                                
+                </div>
+                <div *ngIf="angForm.controls['date_of_birth'].invalid && (angForm.controls['date_of_birth'].dirty ||
+                    angForm.controls['date_of_birth'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['date_of_birth'].errors?.['required']">
+                        Birthday is required.
+                    </div>
+                    <div *ngIf="angForm.controls['date_of_birth'].errors?.['pattern']">
+                        Select a walid date!
+                    </div>
+                </div>
+
+                <div class="form group">
+                    <label class="col-md-4" style="padding-top:10px">Taj Number</label>
+                    <input type="text" class="form-control" placeholder="Type he taj number here..."
+                           formControlName="taj_number" #taj_number/>
+                  </div>
+                  <div *ngIf="angForm.controls['taj_number'].invalid && (angForm.controls['taj_number'].dirty ||
+                    angForm.controls['taj_number'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['taj_number'].errors?.['required']">
+                      Taj number is required.
+                    </div>
+                    <div *ngIf="angForm.controls['taj_number'].errors?.['pattern']">
+                      6 number needs to be provided!
+                    </div>
+                  </div>
+
+                  <div class="form group">
+                    <label class="col-md-4" style="padding-top:10px">Medical History</label>
+                    <input type="text" class="form-control" placeholder="Type the medical medical history here..."
+                           formControlName="medical_history" #medical_history/>
+                  </div>
+                  <div *ngIf="angForm.controls['medical_history'].invalid && (angForm.controls['medical_history'].dirty ||
+                    angForm.controls['medical_history'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['medical_history'].errors?.['required']">
+                      Medical history is required.
+                    </div>
+                    <div *ngIf="angForm.controls['medical_history'].errors?.['pattern']">
+                      Only letters!
+                    </div>
+                  </div>
+
+                  <div class="form group">
+                    <label class="col-md-4" style="padding-top:10px">Gender</label>
+                    <input type="text" class="form-control" placeholder="male / female / na"
+                    formControlName="gender" #gender/>
+                  <!--<select name="" id="" ng-model="test.filterByGender">
+                    <option value="">By Gender</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                    </select>-->
+                  </div>
+
+                  <div *ngIf="IdNumCheck">
+                    <p style="color: red">This taj Number: {{PatientIDNumber}} already exists. 
+                      Upload cancelled, change the taj and try again.</p>
+                  </div>
+                  <div class="form-group" style="padding-top: 10px">
+                    <button (click)="addPatient(pname.value, date_of_birth.value, taj_number.value,
+                    medical_history.value, gender.value);"
+                            type="submit" [disabled]="angForm.pristine || angForm.invalid"
+                            class="btn btn-primary">Add Patient</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
