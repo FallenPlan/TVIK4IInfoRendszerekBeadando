@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+//import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Connection } from 'src/Models/Connection';
 import { Patient } from 'src/Models/Patient';
@@ -57,9 +57,9 @@ export class PatientGetComponent implements OnInit {
     )
  }
 
- searchByNameForm = new FormGroup({
-  'searchByName': new FormControl('',Validators.required),
-  });
+ /*searchByNameForm = new FormGroup({
+  'searchByName': new FormControl('',Validators.required)
+  });*/
 
       //searchByName
       /*searchByName(){

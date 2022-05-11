@@ -77,13 +77,14 @@ import { Connection } from 'src/Models/Connection';
         return this.http.get(`${this.uri}editPatient/${id}`);
       }
 
-      updatePatient(id: any, pname: any, date_of_birth: any, taj_number: any, medical_history: any, gender: any) {
+      updatePatient(id: any, pname: any, date_of_birth: any, taj_number: any, medical_history: any, gender: any, visited: any) {
         const obj = {
             pname: pname,
             date_of_birth: date_of_birth,
             taj_number: taj_number,
             medical_history: medical_history,
-            gender: gender
+            gender: gender,
+            visited: visited
         };
         this.http.post(`${this.uri}patientUpdate/${id}`, obj).subscribe(res => console.log('Done'));
     }

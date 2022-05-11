@@ -5,4 +5,5 @@ export class Patient {
     taj_number: Number;
     medical_history: String;
     gender: String;
+    visited: any;
 }

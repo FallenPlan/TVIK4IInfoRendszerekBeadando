@@ -36,7 +36,8 @@ export class PatientEditComponent implements OnInit {
           date_of_birth: ['', [Validators.required]],
           taj_number: ['',[ Validators.required, Validators.pattern('^[0-9]{6}')]],
           medical_history: ['', [Validators.required, Validators.pattern(patternForName), Validators.maxLength(500), Validators.minLength(1)]],
-          gender: ['', [Validators.required]]
+          gender: ['', [Validators.required]],
+          visited: ['']
         });
     }
 
@@ -59,12 +60,12 @@ export class PatientEditComponent implements OnInit {
         this.as.getPatientById(params['id']).subscribe(res=>{
           this.patientFromDB=res;
           this.angForm.patchValue({pname:res.pname,date_of_birth:this.formatDate(res.date_of_birth),
-            taj_number:res.taj_number,medical_history:res.medical_history,gender:res.gender});
+            taj_number:res.taj_number,medical_history:res.medical_history,gender:res.gender,visited:res.visited});
         })
       });
     }
   
-    updatePatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any, gender: any) {
+    updatePatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any, gender: any, visited: any) {
       this.as.getPatient().subscribe((data: Patient[]) => {
         this.PatientForCheck = data;
       
@@ -86,7 +87,7 @@ export class PatientEditComponent implements OnInit {
           IdOfThePatientFoundInDb= true;
         }
         if((IdOfThePatientFoundInDb==true && IdFoundInDB == true) || (IdFoundInDB==false)){
-          this.as.updatePatient(this.patientFromDB._id, pname, date_of_birth, taj_number, medical_history, gender);
+          this.as.updatePatient(this.patientFromDB._id, pname, date_of_birth, taj_number, medical_history, gender, visited);
           this.router.navigate(['patient-list']);
         } else {
           this.IdNumCheck = true;

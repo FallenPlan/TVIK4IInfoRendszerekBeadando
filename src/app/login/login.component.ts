@@ -49,8 +49,7 @@ export class LoginComponent implements OnInit {
       }
 
       if (match) {
-        this.router.navigate(['/add']);
-
+        this.router.navigate(['/patient-add']);
       }
       else {
         alert('Sikertelen bejelentkezés! Hibás a felhasználónév vagy a jelszó.');

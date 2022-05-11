@@ -76,12 +76,28 @@
             </select>-->
           </div>
 
+
+          <div class="form-check" style="padding-top:10px">
+            <input
+              mdbCheckbox
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+              [checked]="false"
+              formControlName="visited" #visited [(ngModel)] = "patient.visited"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Visited
+            </label>
+          </div>
+
           <div *ngIf="IdNumCheck">
             <p style="color: red">This ID Number: {{PatientIDNumber}} already exists. Upload cancelled, change the ID and try again.</p>
           </div>
           <div class="form-group" style="padding-top:10px">
             <button (click)="updatePatient(pname.value, date_of_birth.value, taj_number.value,
-                    medical_history.value, gender.value);" type="submit"
+                    medical_history.value, gender.value, visited.value);" type="submit"
                     [disabled]="angForm.invalid"
                     class="btn btn-primary">Update Patient</button>
           </div>
