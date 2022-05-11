@@ -10,6 +10,7 @@ import { AppService } from '../app.service';
   templateUrl: './patient-get.component.html',
   styleUrls: ['./patient-get.component.scss']
 })
+
 export class PatientGetComponent implements OnInit {
 
   patients: Patient[];

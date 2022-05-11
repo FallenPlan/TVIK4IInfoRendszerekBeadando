@@ -42,6 +42,20 @@
           <td>{{ patient.gender }}</td>
           <td>{{ patient.taj_number }}</td>
           <td>{{ patient.medical_history }}</td>
+
+          <div class="form-check">
+            <input
+              mdbCheckbox
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Visited
+            </label>
+          </div>
+          
           <td><a [routerLink]="['/patient-edit', patient._id]" class="btn btn-primary">Edit</a></td>
           <td><a (click) = "deletePatient(patient._id)" class="btn btn-danger" style="color: white">Delete</a></td>
         </tr>
@@ -50,6 +64,10 @@
       <ng-template #noResults>
         <p>No results found for "{{searchText}}".</p>
       </ng-template>
+
+      <!--<section class="example-section">
+        <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+      </section>-->
 </div>
 
 <!--<md-input #myInput placeholder="Item name..." [(ngModel)]="name" (input)="filterItem(myInput.value)"></md-input>
