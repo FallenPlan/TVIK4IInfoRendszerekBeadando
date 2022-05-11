@@ -65,23 +65,23 @@
             </div>
           </div>
 
-          <!--<div class="form group">
+          <div class="form group">
             <label class="col-md-4" style="padding-top:10px">Gender</label>
             <input type="text" class="form-control" placeholder="male / female / na"
             formControlName="gender" #gender [(ngModel)] = "patient.gender"/>
-          <select name="" id="" ng-model="test.filterByGender">
+          <!--<select name="" id="" ng-model="test.filterByGender">
             <option value="">By Gender</option>
               <option value="female">Female</option>
               <option value="male">Male</option>
-            </select>
-          </div>-->
+            </select>-->
+          </div>
 
           <div *ngIf="IdNumCheck">
             <p style="color: red">This ID Number: {{PatientIDNumber}} already exists. Upload cancelled, change the ID and try again.</p>
           </div>
-          <div class="form-group">
+          <div class="form-group" style="padding-top:10px">
             <button (click)="updatePatient(pname.value, date_of_birth.value, taj_number.value,
-                    medical_history.value);" type="submit"
+                    medical_history.value, gender.value);" type="submit"
                     [disabled]="angForm.invalid"
                     class="btn btn-primary">Update Patient</button>
           </div>
