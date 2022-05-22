@@ -57,31 +57,4 @@ export class PatientGetComponent implements OnInit {
     )
  }
 
- /*searchByNameForm = new FormGroup({
-  'searchByName': new FormControl('',Validators.required)
-  });*/
-
-      //searchByName
-      /*searchByName(){
-        if(this.searchByNameForm.valid){
-          this.as.searchPatientByName(this.searchByNameForm.get('searchByName')?.value).subscribe((res)=>{
-            this.readedData = res.pname;
-            this.router.navigate(['patient-list']);
-          });
-        }
-        
-      }*/
-
-      /*module('myApp', []).controller('personCtrl', function($scope) {
-        $scope.pname = "John"
-    });*/
-
-    //getPartners function
-    /*getAllPatients(){
-      this.as.getAllPatient().subscribe((res)=>{
-        console.log(res,"res==>");
-        this.readedData = res.data;
-      });
-    }*/
-
 }

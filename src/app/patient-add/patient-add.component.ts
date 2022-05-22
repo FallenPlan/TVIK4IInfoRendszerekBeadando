@@ -32,7 +32,7 @@ export class PatientAddComponent implements OnInit {
         });
       }
 
-      addPatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any, gender:any) {
+      addPatient(pname:any, date_of_birth:string, taj_number:any, medical_history:any, gender:any) {
         this.PatientIDNumber = taj_number;
         var PatientArray: any [] = [];
         PatientArray.push(this.patients)
@@ -47,8 +47,8 @@ export class PatientAddComponent implements OnInit {
           }
         }
         if(sthingContainedInTheDB == false) {
-          console.log(pname, date_of_birth, taj_number, medical_history, gender);
-          this.as.addPatient(pname, date_of_birth, taj_number, medical_history, gender);
+          console.log(pname, Date.parse(date_of_birth), taj_number, medical_history, gender);
+          this.as.addPatient(pname, Date.parse(date_of_birth), taj_number, medical_history, gender);
           this.router.navigate(['patient-list']);
         } else {
           this.IdNumCheck = true;

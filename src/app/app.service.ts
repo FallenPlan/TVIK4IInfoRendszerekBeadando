@@ -64,6 +64,12 @@ import { Connection } from 'src/Models/Connection';
           return this.http.get<Patient[]>(`${this.uri}getPatient`);
       }
 
+      getPatient2(visit:string):Observable<Patient[]>{
+        console.log(visit);
+        
+        return this.http.get<Patient[]>(`${this.uri}getPatients/${visit}`);
+    }
+
       getPatientById(id:any):Observable<Patient> {
           return this.http.get<Patient>(`${this.uri}getPatient/${id}`);
       }
@@ -77,7 +83,7 @@ import { Connection } from 'src/Models/Connection';
         return this.http.get(`${this.uri}editPatient/${id}`);
       }
 
-      updatePatient(id: any, pname: any, date_of_birth: any, taj_number: any, medical_history: any, gender: any, visited: any) {
+      updatePatient(id: any, pname: any, date_of_birth: any, taj_number: any, medical_history: any, gender: any, visited: boolean) {
         const obj = {
             pname: pname,
             date_of_birth: date_of_birth,

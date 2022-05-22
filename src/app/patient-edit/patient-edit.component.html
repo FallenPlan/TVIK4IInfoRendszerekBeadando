@@ -97,7 +97,7 @@
           </div>
           <div class="form-group" style="padding-top:10px">
             <button (click)="updatePatient(pname.value, date_of_birth.value, taj_number.value,
-                    medical_history.value, gender.value, visited.value);" type="submit"
+                    medical_history.value, gender.value, visited.checked);" type="submit"
                     [disabled]="angForm.invalid"
                     class="btn btn-primary">Update Patient</button>
           </div>

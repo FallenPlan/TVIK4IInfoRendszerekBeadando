@@ -1,8 +1,15 @@
 <div class="container">
   <div class="form-group mb-4" style="padding-top:20px">
-    <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search">
+    <form [formGroup]="visit" (ngSubmit)="getPatient2()">
+    <select [formControl]="visitSelect">
+      <option value="urologia" selected="selected">Urológia</option>
+      <option value="mam">Mammográfia</option>
+      <option value="vac">Vaccine</option>
+    </select>
+    <button type="submit">Search</button>
+    </form>
   </div>
-    <table class="table table-hover" *ngIf="(patients | filter: searchText).length > 0; else noResults">
+    <table class="table table-hover">
         <thead>
         <tr>
           <td>#</td>
@@ -15,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let patient of patients | filter: searchText; let i = index">
+        <tr *ngFor="let patient of patients; let i = index">
           <th scope="row">{{i + 1}}</th>
           <td>{{ patient.pname }}</td>
           <td>{{ patient.gender }}</td>
@@ -43,7 +50,7 @@
         </tbody>
       </table>
       <ng-template #noResults>
-        <p>No results found for "{{searchText}}".</p>
+        <p>No results found for "{{visitSelect}}".</p>
       </ng-template>
 
       <!--<section class="example-section">

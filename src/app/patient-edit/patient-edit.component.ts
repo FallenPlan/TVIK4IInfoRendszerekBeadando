@@ -21,6 +21,7 @@ export class PatientEditComponent implements OnInit {
     ConnectionID: String;
     PatientIDNumber: String;
     patientFromDB:Patient;
+    visited: boolean = false;
 
     constructor(private route: ActivatedRoute, private router: Router,
                 private as: AppService, private fb: FormBuilder) {
@@ -65,7 +66,7 @@ export class PatientEditComponent implements OnInit {
       });
     }
   
-    updatePatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any, gender: any, visited: any) {
+    updatePatient(pname:any, date_of_birth:any, taj_number:any, medical_history:any, gender: any, visited: boolean) {
       this.as.getPatient().subscribe((data: Patient[]) => {
         this.PatientForCheck = data;
       
@@ -75,6 +76,8 @@ export class PatientEditComponent implements OnInit {
       this.IdNumCheck = false;
         var IdFoundInDB= false;
         var IdOfThePatientFoundInDb= false;
+        if(visited == true)
+          this.visited = true;
         for(let i=0; i<this.PatientForCheck.length;i++) {
           for (const patient of this.PatientForCheck) {
             if (patient.taj_number === taj_number) {
